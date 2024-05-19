@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #1a1a1a; /* Fundo mais escuro */
+}
+
+.player {
+    background-color: #292929; /* Cor do player mais escura */
+    padding: 50px 30px;
+    width: 414px;
+    max-width: 100%;
+    border-radius: 16px;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.cover img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    border-radius: 16px;
+    margin-bottom: 20px;
+}
+
+.info h2 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #ffffff; /* Texto branco para destaque */
+    margin-bottom: 5px;
+}
+
+.info h3 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #bbb; /* Texto cinza claro para detalhes */
+    margin-bottom: 20px;
+}
+
+audio {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.controls button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4d4d4d; /* Cor dos botões mais escura */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.controls button:hover {
+    background-color: #666; /* Cor dos botões mais clara no hover */
+}
+
+#play {
+    background-color: #4caf50;
+}
+
+#play:hover {
+    background-color: #45a049;
+}
