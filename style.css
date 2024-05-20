@@ -1,14 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Fira Sans", sans-serif;
+}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #1a1a1a; /* Fundo mais escuro */
+    background-color: #1a1a1a;
 }
 
 .player {
-    background-color: #292929; /* Cor do player mais escura */
+    background-color: #292929;
     padding: 50px 30px;
     width: 414px;
     max-width: 100%;
@@ -28,14 +35,14 @@ body {
 .info h2 {
     font-size: 24px;
     font-weight: 600;
-    color: #ffffff; /* Texto branco para destaque */
+    color: #ffffff;
     margin-bottom: 5px;
 }
 
 .info h3 {
     font-size: 16px;
     font-weight: 500;
-    color: #bbb; /* Texto cinza claro para detalhes */
+    color: #bbb;
     margin-bottom: 20px;
 }
 
@@ -54,15 +61,18 @@ audio {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #4d4d4d; /* Cor dos botões mais escura */
+    background-color: #4d4d4d;
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .controls button:hover {
-    background-color: #666; /* Cor dos botões mais clara no hover */
+    background-color: #666;
 }
 
 #play {
@@ -71,4 +81,9 @@ audio {
 
 #play:hover {
     background-color: #45a049;
+}
+
+.controls i {
+    font-size: 16px;
+    pointer-events: none; /* Ensure the icons do not interfere with button click events */
 }

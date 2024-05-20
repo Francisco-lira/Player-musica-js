@@ -16,13 +16,7 @@ const songs = [
         artist: "Ozzy Osbourne",
         src: "musicas/Ozzy Osbourne - Under The Graveyard.mp3",
         cover: "imagens/OzzyUnderTheGraveyard.jpg"
-    },
-    {
-        title: "Enter The Sandman",
-        artist: "Metallica",
-        src: "musicas/Metallica - Enter Sandman.mp3",
-        cover: "imagens/sandman.jpg"
-    },
+    }
 ];
 
 let currentSongIndex = 0;
@@ -34,6 +28,7 @@ const cover = document.getElementById('cover');
 const prevButton = document.getElementById('prev');
 const nextButton = document.getElementById('next');
 const playButton = document.getElementById('play');
+const playIcon = playButton.querySelector('i');
 
 function loadSong(song) {
     title.textContent = song.title;
@@ -49,6 +44,7 @@ function prevSong() {
     }
     loadSong(songs[currentSongIndex]);
     audio.play();
+    updatePlayIcon();
 }
 
 function nextSong() {
@@ -58,15 +54,28 @@ function nextSong() {
     }
     loadSong(songs[currentSongIndex]);
     audio.play();
+    updatePlayIcon();
 }
 
 function togglePlayPause() {
     if (audio.paused) {
         audio.play();
-        playButton.textContent = "Pause";
+        playIcon.classList.remove('fa-play');
+        playIcon.classList.add('fa-pause');
     } else {
         audio.pause();
-        playButton.textContent = "Play";
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');
+    }
+}
+
+function updatePlayIcon() {
+    if (audio.paused) {
+        playIcon.classList.remove('fa-pause');
+        playIcon.classList.add('fa-play');
+    } else {
+        playIcon.classList.remove('fa-play');
+        playIcon.classList.add('fa-pause');
     }
 }
 
@@ -76,5 +85,5 @@ playButton.addEventListener('click', togglePlayPause);
 
 audio.addEventListener('ended', nextSong);
 
-// Carregar a primeira música no início
 loadSong(songs[currentSongIndex]);
+updatePlayIcon();
