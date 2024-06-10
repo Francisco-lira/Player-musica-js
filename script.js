@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:8000/api/songs';
+const apiUrl = 'http://localhost:8000/api/song';
 
 const songs = [
     {
@@ -21,7 +21,7 @@ const songs = [
     }
 ];
 let currentSongIndex = 0;
-let songs = [];
+let song = [];
 
 const audio = document.getElementById('audio');
 const title = document.getElementById('title');
