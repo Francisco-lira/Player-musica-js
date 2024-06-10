@@ -1,3 +1,5 @@
+const apiUrl = 'http://localhost:8000/api/songs';
+
 const songs = [
     {
         title: "Snuff",
@@ -18,8 +20,8 @@ const songs = [
         cover: "imagens/OzzyUnderTheGraveyard.jpg"
     }
 ];
-
 let currentSongIndex = 0;
+let songs = [];
 
 const audio = document.getElementById('audio');
 const title = document.getElementById('title');
@@ -30,6 +32,7 @@ const nextButton = document.getElementById('next');
 const playButton = document.getElementById('play');
 const playIcon = playButton.querySelector('i');
 
+// Função para carregar a música
 function loadSong(song) {
     title.textContent = song.title;
     artist.textContent = song.artist;
@@ -37,6 +40,18 @@ function loadSong(song) {
     cover.src = song.cover;
 }
 
+// Função para carregar músicas da API
+function fetchSongs() {
+    fetch('/api/songs')
+        .then(response => response.json())
+        .then(data => {
+            songs = data;
+            loadSong(songs[currentSongIndex]);
+        })
+        .catch(error => console.error('Erro ao buscar músicas:', error));
+}
+
+// Função para tocar a música anterior
 function prevSong() {
     currentSongIndex--;
     if (currentSongIndex < 0) {
@@ -47,6 +62,7 @@ function prevSong() {
     updatePlayIcon();
 }
 
+// Função para tocar a próxima música
 function nextSong() {
     currentSongIndex++;
     if (currentSongIndex >= songs.length) {
@@ -57,6 +73,7 @@ function nextSong() {
     updatePlayIcon();
 }
 
+// Função para alternar entre play e pause
 function togglePlayPause() {
     if (audio.paused) {
         audio.play();
@@ -69,6 +86,7 @@ function togglePlayPause() {
     }
 }
 
+// Função para atualizar o ícone de play/pause
 function updatePlayIcon() {
     if (audio.paused) {
         playIcon.classList.remove('fa-pause');
@@ -79,11 +97,13 @@ function updatePlayIcon() {
     }
 }
 
+// Adiciona eventos aos botões
 prevButton.addEventListener('click', prevSong);
 nextButton.addEventListener('click', nextSong);
 playButton.addEventListener('click', togglePlayPause);
 
+// Evento para tocar a próxima música quando a atual terminar
 audio.addEventListener('ended', nextSong);
 
-loadSong(songs[currentSongIndex]);
-updatePlayIcon();
+// Carrega as músicas da API ao iniciar
+fetchSongs();

@@ -1,0 +1,20 @@
+[
+    {
+        "title": "Snuff",
+        "artist": "Corey Taylor",
+        "src": "musicas/Corey Taylor - Snuff.mp3",
+        "cover": "imagens/snuff.jpg"
+    },
+    {
+        "title": "The Trooper",
+        "artist": "Iron Maiden",
+        "src": "musicas/Iron Maiden - The Trooper.mp3",
+        "cover": "imagens/Trooper.jpg"
+    },
+    {
+        "title": "Under The Graveyard",
+        "artist": "Ozzy Osbourne",
+        "src": "musicas/Ozzy Osbourne - Under The Graveyard.mp3",
+        "cover": "imagens/OzzyUnderTheGraveyard.jpg"
+    }
+]
