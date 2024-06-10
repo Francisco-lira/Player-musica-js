@@ -1,4 +1,5 @@
-[
+// Obtendo o JSON de músicas
+$jsonData = '[
     {
         "title": "Snuff",
         "artist": "Corey Taylor",
@@ -17,4 +18,21 @@
         "src": "musicas/Ozzy Osbourne - Under The Graveyard.mp3",
         "cover": "imagens/OzzyUnderTheGraveyard.jpg"
     }
-]
+]';
+
+// Decodificando o JSON em um array associativo
+$songs = json_decode($jsonData, true);
+
+// Iterando sobre cada música
+foreach ($songs as $song) {
+    // Construindo os URLs completos para as músicas e imagens
+    $fullMusicPath = env('APP_URL') . '/' . $song['musicas/Corey Taylor - Snuff.mp3'];
+    $fullImagePath = env('APP_URL') . '/' . $song['imagens/snuff.jpg'];
+
+    // Imprimindo os detalhes da música
+    echo "Title: {$song['title']}" . PHP_EOL;
+    echo "Artist: {$song['artist']}" . PHP_EOL;
+    echo "Music URL: $fullMusicPath" . PHP_EOL;
+    echo "Cover URL: $fullImagePath" . PHP_EOL;
+    echo PHP_EOL;
+}
